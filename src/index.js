@@ -1,10 +1,13 @@
+require('dotenv').config({path: './env'});
+
 import mongoose from "mongoose";
 import { DB_NAME } from "./constants";
+import connectDB from "./db";
 
+/*
+First approach to connect to db
 import express from "express";
-
 const app = express();
-
 //The code snippet ;(()=>{})() is a self-invoking (or immediately invoked) function expression (IIFE) written in JavaScript.
 ; (async () => {
 
@@ -19,9 +22,11 @@ const app = express();
         app.listen(process.env.PORT, () => {
             console.log(`App is listening on port ${process.env.PORT}`);
         });
-        
+
     } catch (error) {
         console.log("ERROR:- ", error);
         throw error
     }
 })()
+
+*/
