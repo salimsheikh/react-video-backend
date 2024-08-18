@@ -76,3 +76,5 @@ const Cat = mongoose.model('Cat', { name: String });
 const kitty = new Cat({ name: 'Zildjian' });
 kitty.save().then(() => console.log('meow'));
 ````
+
+"dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
