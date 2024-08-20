@@ -56,7 +56,7 @@ add .prettierignore ignore file
 ````
 Above push to github
 
-uninstall
+uninstall all
 ````js
 npm uninstall express mongoose dotenv
 ````
@@ -78,3 +78,7 @@ kitty.save().then(() => console.log('meow'));
 ````
 
 "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+
+````js
+npm run start
+````
