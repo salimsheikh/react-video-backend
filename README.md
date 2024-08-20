@@ -82,3 +82,28 @@ kitty.save().then(() => console.log('meow'));
 ````js
 npm run start
 ````
+
+https://www.npmjs.com/package/mongoose-aggregate-paginate-v2
+````js
+npm install mongoose-aggregate-paginate-v2
+````
+video.modeles.js
+````js
+videoSchema.plugin(mongooseAggregatePaginate)
+````
+
+https://www.npmjs.com/package/bcryptjs
+https://www.npmjs.com/package/bcrypt (We Used bcrypt)
+````js
+npm install bcrypt
+````
+No longer used, deprecated
+
+````js
+npm install bcryptjs
+````
+
+https://www.npmjs.com/package/jsonwebtoken
+````js
+npm install jsonwebtoken
+````
