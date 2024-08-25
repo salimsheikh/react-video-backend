@@ -27,7 +27,7 @@ const registerUser = asyncHandler(async (req, res) => {
      */
 
     // Extract user details from the request body
-    const { fullname, email, username, password } = req.body;
+    const { fullName, email, username, password } = req.body;
 
     console.log("email: ", email);
 
@@ -41,7 +41,7 @@ const registerUser = asyncHandler(async (req, res) => {
     console.log("email: ", email);
 
     // Validate that all required fields are present and not empty
-    if ([fullname, email, username, password].some((field) => field?.trim() === "")) {
+    if ([fullName, email, username, password].some((field) => field?.trim() === "")) {
         throw new ApiError(400, "All fields are required.");
     }
 
@@ -63,7 +63,12 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // Get the local paths for avatar and cover images (if provided)
     const avatarLocalPath = req.files?.avatar[0]?.path;
-    const coverImageLocalPath = req.files?.coverImage[0]?.path;
+    // const coverImageLocalPath = req.files?.coverImage[0]?.path;
+
+    let coverImageLocalPath
+    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0){
+        coverImageLocalPath = req.files.coverImage[0].path;
+    }
 
     // Ensure an avatar file is provided
     if (!avatarLocalPath) {
@@ -83,7 +88,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // Create a new user object and save it to the database
     const user_res = await User.create({
-        fullname,
+        fullName,
         avatar: avatar.url,
         coverImage: coverImage?.url || "",
         email,
