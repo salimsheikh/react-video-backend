@@ -6,13 +6,13 @@ dotenv.config({
 import connectDB from "./db/index.js";
 import app from "./app.js"
 
-connectDB().then(() => {
-
+connectDB()
+.then(() => {
     app.listen(process.env.PORT || 8000, () => {
         console.log(`Server is runnig at port: ${process.env.PORT}`);
     });
-
-}).catch(
+})
+.catch(
     (error) => {
         console.log(`Mongodb connection failed: ${error}`);
     }
